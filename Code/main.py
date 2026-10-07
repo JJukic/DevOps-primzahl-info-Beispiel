@@ -34,6 +34,11 @@ class PrimzahlResponse(BaseModel):
 # Erstellt eine FastAPI-Applikation mit dem Titel "PrimzahlCheckerAPI"
 app = FastAPI(title="PrimzahlCheckerAPI")
 
+# Definiert einen GET-Endpunkt unter "/" für die Root-URL, der eine einfache JSON-Nachricht zurückgibt
+@app.get("/")
+async def root():
+    return {"message": "PrimzahlCheckerAPI läuft"}
+
 # Deklariert einen POST-Endpunkt unter "/primzahl-check"
 # response_model sorgt dafür, dass die Antwort dem PrimzahlResponse-Schema entspricht
 @app.post("/primzahl-check", response_model=PrimzahlResponse)
